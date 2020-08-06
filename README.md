@@ -2,22 +2,6 @@
 
 QuakeKube is a Kubernetes-ified version of [QuakeJS](https://github.com/inolen/quakejs) that runs a dedicated [Quake 3](https://en.wikipedia.org/wiki/Quake_III_Arena) server in a Kubernetes Deployment, and then allow clients to connect via QuakeJS in the browser.
 
-## Quick start
-
-Start an instance of Kubernetes locally using cinder (or kind):
-
-```shell
-$ cinder create cluster
-```
-
-Deploy the example manifest:
-
-```shell
-$ kubectl apply -f example.yaml
-```
-
-Finally, navigate to the `http://$(cinder get ip):30001` in the browser.
-
 ## How it works
 
 QuakeKube makes use [ioquake](https://www.ioquake.org) for the Quake 3 dedicated server, and [QuakeJS](https://github.com/inolen/quakejs), a port of ioquake to javascript using [Emscripten](http://github.com/kripken/emscripten), to provide an in-browser game client.
@@ -45,7 +29,7 @@ data:
   fragLimit: 25
   timeLimit: 15m
   game:
-    motd: "Welcome to Critical Stack"
+    motd: "Welcome to QuakeJS"
     type: FreeForAll
     forceRespawn: false
     inactivity: 10m
@@ -95,6 +79,7 @@ The content server hosts a small upload app to allow uploading `pk3` or `zip` fi
 
 ## Credits
 
+* [criticalstack/quake-kube](https://github.com/criticalstack/quake-kube) - Creators of this awesomeness
 * [inolen/quakejs](https://github.com/inolen/quakejs) - The really awesome QuakeJS project that makes this possible.
 * [ioquake/ioq3](https://github.com/ioquake/ioq3) - The community supported version of Quake 3 used by QuakeJS. It is licensed under the GPLv2.
 * [begleysm/quakejs](https://github.com/begleysm/quakejs) - Information in the README.md (very helpful) was used as a guide, as well as, some forked assets of this project (which came from quakejs-web originally) were used.
